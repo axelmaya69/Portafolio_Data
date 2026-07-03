@@ -147,16 +147,14 @@ footer span{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--
 @keyframes fadeUp{ from{ transform:translateY(18px); } to{ transform:translateY(0); } }
 @keyframes pulseDot{ 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
 
-/* clases de idioma: se ocultan según el idioma activo */
-[data-lang]{ display:none; }
-html[data-lang="es"] [data-lang="es"]{ display:revert; }
-html[data-lang="en"] [data-lang="en"]{ display:revert; }
-a[data-lang], span[data-lang]{ display:none; }
-html[data-lang="es"] a[data-lang="es"], html[data-lang="es"] span[data-lang="es"]{ display:inline-flex; }
-html[data-lang="en"] a[data-lang="en"], html[data-lang="en"] span[data-lang="en"]{ display:inline-flex; }
-p[data-lang], h2[data-lang]{ display:none; }
-html[data-lang="es"] p[data-lang="es"], html[data-lang="es"] h2[data-lang="es"]{ display:block; }
-html[data-lang="en"] p[data-lang="en"], html[data-lang="en"] h2[data-lang="en"]{ display:block; }
+/* clases de idioma: se ocultan según el idioma activo (scoped a body, no al <html>) */
+body [data-lang]{ display:none; }
+html[data-lang="es"] body [data-lang="es"]{ display:revert; }
+html[data-lang="en"] body [data-lang="en"]{ display:revert; }
+html[data-lang="es"] body span[data-lang="es"]{ display:inline-flex; }
+html[data-lang="en"] body span[data-lang="en"]{ display:inline-flex; }
+html[data-lang="es"] body p[data-lang="es"], html[data-lang="es"] body h2[data-lang="es"]{ display:block; }
+html[data-lang="en"] body p[data-lang="en"], html[data-lang="en"] body h2[data-lang="en"]{ display:block; }
 </style>
 </head>
 <body>
@@ -184,6 +182,7 @@ html[data-lang="en"] p[data-lang="en"], html[data-lang="en"] h2[data-lang="en"]{
 </header>
 
 <main>
+
 
   <!-- ============================================================
        HERO — cambia aquí tu nombre / rol / descripción
@@ -221,8 +220,7 @@ html[data-lang="en"] p[data-lang="en"], html[data-lang="en"] h2[data-lang="en"]{
       <p data-lang="en">This project contains a Jupyter file that introduces Python through several code examples, and also includes the planned challenge.</p>
       <span class="open"><span data-lang="es">Ver</span><span data-lang="en">View</span> <span class="arrow">→</span></span>
     </a>
-<!--  
-  
+<!--
     <a class="card" href="proyectos/prediccion-precios.html">
       <span class="num">02</span>
       <h3 data-lang="es">Predicción de Precios</h3>
@@ -267,11 +265,11 @@ html[data-lang="en"] p[data-lang="en"], html[data-lang="en"] h2[data-lang="en"]{
       <p data-lang="es">Duplica una tarjeta &lt;a class="card"&gt; y apúntala a tu HTML generado desde Jupyter.</p>
       <p data-lang="en">Duplicate a &lt;a class="card"&gt; block and point it to your Jupyter-generated HTML.</p>
     </div>
-!-->
+-->
   </div>
 
   <footer>
-    <span>© 2026 · Axel Maya</span>
+    <span>© 2026 · Axel D. Bartolo Maya</span>
     <span>HTML · GitHub Pages</span>
   </footer>
 
